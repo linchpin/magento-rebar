@@ -1,0 +1,23 @@
+{
+  "name": "mage2theme",
+  "title": "mage2theme",
+  "description": "Magento 2 Theme",
+  "version": "1.0.0",
+  "homepage": "http://linchpin.agency",
+  "author": {
+    "name": "Linchpin",
+    "email": "team@linchpinagency.com",
+    "url": "http://linchpin.agency"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.15",
+    "gulp-sass": "^2.3.2",
+    "gulp-watch": "^4.3.5",
+    "gulp-wrap-js": "^0.4.1"
+  },
+  "keywords": []
+}

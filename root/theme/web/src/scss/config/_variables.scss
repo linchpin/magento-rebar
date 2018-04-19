@@ -1,0 +1,157 @@
+/**
+ * 01. Global
+ * 02. Breakpoints
+ * 03. Grid
+ * 04. Typography
+ * 05. Header
+ * 06. Transition
+ */
+
+// 01. Global
+
+$rem-base:        10px; // Based off of Magento Blank font-size
+$black:           #000;
+$dark-gray:       #434648;
+$medium-gray:     #7D7D7D;
+$gray:            #e0dfdc;
+$light-gray:      #f2f2f2;
+$white:           #fff;
+$blue:            #157b8b;
+$red:             #d84848;
+
+$error:           #ec5840;
+$notice:          #ffae00;
+$success:         #3adb76;
+
+$primary-color:   $black;
+$secondary-color: $dark-gray;
+$accent-color:    $blue;
+$sale-color:      $red;
+$border-gray:     #ddd;
+
+$sans-serif:      Arial, sans-serif;
+$serif:           Georgia, serif;
+
+$color-map: (
+	primary : $primary-color,
+	secondary : $secondary-color,
+	accent : $accent-color,
+	dark-gray : $dark-gray,
+	medium-gray : $medium-gray,
+	gray : $gray,
+	light-gray : $light-gray,
+	white : $white,
+	red : $red
+);
+
+$color-map-dup-keys: (
+	black : $black,
+	dark-grey : $dark-gray,
+	medium-grey : $medium-gray,
+	grey : $gray,
+	light-grey : $light-gray
+);
+
+$property-directions: (
+	top,
+	right,
+	bottom,
+	left
+);
+
+$spacing-sizes: (
+	none   : 0,
+	small  : 1rem,
+	medium : 2rem,
+	large  : 4rem
+);
+
+$directions: (
+	left,
+	center,
+	right
+);
+
+$alignments: (
+	left,
+	right,
+	top,
+	bottom,
+	middle,
+	center,
+	middlecenter
+);
+
+$weights: (
+	light: 300,
+	normal: 600,
+	bold: 800
+);
+
+$font-adjustments: (
+	small: 80%,
+	large: 115%
+);
+
+@import 'utils';
+
+
+// 02. Breakpoints
+
+$breakpoints: (
+	small: 0,
+	medium: 640px,
+	large: 1024px,
+	xlarge: 1200px,
+	xxlarge: 1440px,
+);
+
+$bp-list: ();
+
+@each $key, $val in $breakpoints {
+	$bp-list: append($bp-list, $key);
+}
+
+$custom-breakpoints: (
+	ipad: 768px
+);
+
+$small-only-bp: strip-unit( map-get( $breakpoints, medium ) - 1 ) * 1px;
+$small-only: 'screen and (max-width: #{$small-only-bp})';
+
+$ipad-down-bp: strip-unit( map-get( $custom-breakpoints, ipad) - 1 ) * 1px;
+$ipad-down: 'screen and (max-width: #{$ipad-down-bp})';
+$ipad-up-bp: strip-unit( map-get( $custom-breakpoints, ipad) ) * 1px;
+$ipad-up: 'screen and (min-width: #{$ipad-up-bp})';
+
+// 03. Grid
+
+// $row-width and $row-padding match parent the theme (Magento Blank)
+//
+// Updating these variables without accounting for parent theme styles
+// may cause some unforseen display bugs
+$row-width:   rem-calc(1280);
+$row-padding: rem-calc(20);
+
+$columns:        12;
+$column-padding: rem-calc(16);
+
+
+// 04. Typography
+
+$body-font-family: $sans-serif;
+$header-font-family: $sans-serif;
+$link-color: $accent-color;
+$link-hover: scale-color( darken( $link-color, 15% ) );
+$footer-link-hover: $accent-color;
+
+
+// 05. Header
+
+$header-background:  $white;
+
+
+// 06. Transition
+
+$global-timing: 400ms;
+$global-easing: cubic-bezier(0.45, 0.05, 0.55, 0.95);

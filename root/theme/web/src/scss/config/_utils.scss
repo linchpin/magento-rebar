@@ -1,0 +1,29 @@
+/**
+ * 01. Strip Unit
+ * 02. Rem Calc
+ */
+
+// 01. Strip Unit
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+
+@function strip-unit( $number ) {
+	@if type-of( $number ) == 'number' and not unitless( $number ) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+
+// 02. Rem Calc
+// Return rem value from a desired pixel value
+// @param {Number} $size - Desired pixel value
+// @return {Number} $rem-size - Calculated rem value
+
+@function rem-calc( $size ) {
+	$rem-size: strip-unit($size)/strip-unit($rem-base);
+	
+	@return $rem-size * 1rem;
+}

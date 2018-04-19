@@ -1,0 +1,163 @@
+/**
+ * 01. Clearfix
+ * 02. Grid
+ * 03. Breakpoint
+ * 04. Placeholder
+ * 05. Spacing
+ * 06. Screen Reader Text
+ * 07. Reset Screen Reader Text
+ */
+
+// 01. Clearfix
+// Clear floating children's height
+
+@mixin clearfix () {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+
+// 02. Grid
+// Create a set of grid classes
+// @param {String} $prefix - Prefix for column class
+// @param {Number} $columns - How many columns the grid should be
+
+@mixin grid ( $prefix: 'small', $columns: 12 ) {
+	@for $i from 1 through $columns {
+		.#{$prefix}-#{$i} {
+			width: $i/12 * 100%;
+		}
+
+		.#{$prefix}-offset-#{$i} {
+			left: $i/12 * 100%;
+		}
+	}
+}
+
+
+// 03. Breakpoint
+// Wrap styles in a global breakpoint
+// @param {String} $key - Breakpoint size as labeled in the breakpoints map
+// @param {Map} $map - Key : Value map of breakpoints, defaults to global $breakpoints
+
+@mixin breakpoint ( $key, $map: $breakpoints ) {
+	$breakpoint-size: map-get( $map, $key );
+
+	@if ( $breakpoint-size == 0 ) {
+		@media screen {
+			@content;
+		}
+	} @else {
+		@media screen and ( min-width: $breakpoint-size ) {
+			@content;
+		}
+	}
+}
+
+
+// 04. Placeholder
+// Set input placeholder styles
+
+@mixin placeholder {
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		@content;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+		@content;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+		@content;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		@content;
+	}
+}
+
+// 05. Spacing
+
+@mixin spacing-layout( $property, $prefix: '' ) {
+	$property_class: #{$property} !default;
+
+	@if $prefix != '' {
+		$property_class: #{$prefix}-#{$property};
+	}
+
+	@each $direction in $property-directions {
+		.#{$property_class}-#{$direction} {
+			#{$property}-#{$direction}: 2rem;
+		}
+
+		@each $type, $size in $spacing-sizes {
+			.#{$property_class}-#{$direction}-#{$type} {
+				#{$property}-#{$direction}: $size;
+			}
+		}
+	}
+
+	.#{$property}-all {
+		#{$property}: 2rem;
+	}
+
+	@each $type, $size in $spacing-sizes {
+		.#{$property_class}-all-#{$type} {
+			#{$property}: $size;
+		}
+	}
+
+	.#{$property_class}-vertical {
+		#{$property}-top: 2rem;;
+		#{$property}-bottom: 2rem;;
+	}
+
+	.#{$property_class}-horizontal {
+		#{$property}-left: 2rem;;
+		#{$property}-right: 2rem;;
+	}
+
+	@each $type, $size in $spacing-sizes {
+		.#{$property_class}-vertical-#{$type} {
+			#{$property}-top: $size;
+			#{$property}-bottom: $size;
+		}
+	}
+
+	@each $type, $size in $spacing-sizes {
+		.#{$property_class}-horizontal-#{$type} {
+			#{$property}-left: $size;
+			#{$property}-right: $size;
+		}
+	}
+
+}
+
+
+// 06. Screen Reader Text
+
+@mixin screen-reader-text {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+
+// 07. Reset Screen Reader Text
+
+@mixin reset-screen-reader-text {
+	clip: auto !important;
+	height: auto !important;
+	width: auto !important;
+	margin: 0 !important;
+	position: static !important;
+}
