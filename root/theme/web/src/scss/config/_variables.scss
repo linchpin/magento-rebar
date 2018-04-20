@@ -142,7 +142,7 @@ $column-padding: rem-calc(16);
 $body-font-family: $sans-serif;
 $header-font-family: $sans-serif;
 $link-color: $accent-color;
-$link-hover: scale-color( darken( $link-color, 15% ) );
+$link-hover: scale-color( $link-color, $lightness: -15% );
 $footer-link-hover: $accent-color;
 
 
