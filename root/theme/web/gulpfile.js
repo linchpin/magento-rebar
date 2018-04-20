@@ -33,7 +33,7 @@ gulp.task( 'scripts', function() {
 // Wrap JS
 gulp.task( 'wrapjs', ['scripts'], function() {
 	return gulp.src('./js/{%= theme_identifier %}.js')
-		.pipe( wrapJS( 'require(["jquery"], function ( $ ) { %= body % } )' ) )
+		.pipe( wrapJS( 'require(["jquery", "slick"], function ( $ ) { %= body % } )' ) )
 		.pipe( gulp.dest('./js') );
 } );
 
@@ -62,6 +62,7 @@ gulp.task( 'autoprefixer', ['sass'], function() {
 // Watch
 gulp.task( 'watch', function() {
 	gulp.watch('./src/js/theme/*.js', ['scripts', 'wrapjs']);
+	gulp.watch('./src/scss/**/*.scss', ['sass', 'autoprefixer']);
 } );
 
 

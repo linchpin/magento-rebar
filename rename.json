@@ -2,4 +2,5 @@
 	"theme/web/js/theme.js": "theme/web/js/{%= theme_identifier %}.js",
 	"theme/web/src/js/theme/theme._theme.js": "theme/web/src/js/theme/{%= theme_identifier %}._theme.js",
 	"theme/web/src/scss/theme.scss": "theme/web/src/scss/{%= theme_identifier %}.scss"
+	"theme/web/css/theme.css": "theme/web/css/{%= theme_identifier %}.css"
 }
