@@ -1,15 +1,11 @@
 /**
  * mage2theme grunt scaffold
- * heavily based on the grunt-wp-them
+ * heavily based on the grunt-wp-theme
  * Copyright (c) 2018 Aaron Ware, Maxwell Morgan, Linchpin
  * Updated by aware on 4/18/18.
  *
- * grunt-wp-theme
- * https://github.com/10up/grunt-wp-theme
- *
  * Copyright (c) 2013 Eric Mann, 10up
  * Licensed under the MIT License
- *
  */
 
 'use strict';
