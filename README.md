@@ -25,14 +25,14 @@ Once grunt-init is installed, place this template (either manually or cloned fro
 ### Linux/Mac Users
 
 ```
-git clone https://github.com/linchpinagency/magento-2-theme.git ~/.grunt-init/magento-2-theme
+git clone https://github.com/linchpin/magento2-rebar.git ~/.grunt-init/magento-2-theme
 ```
 This will create a folder named 'rebar' within your .grunt-init the name of the folder is utilized later on when using the project scaffold.
 
 ### Windows Users
 
 ```
-git clone https://github.com/linchpinagency/magento-2-theme.git %USERPROFILE%/.grunt-init/magento-2-theme
+git clone https://github.com/linchpin/magento2-rebar.git %USERPROFILE%/.grunt-init/magento-2-theme
 ```
 
 ## Usage
