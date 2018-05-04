@@ -59,3 +59,5 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 ```
+
+## Using Magento Rebar to set-up a new theme and store
